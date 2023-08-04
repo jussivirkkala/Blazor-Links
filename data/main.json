@@ -18,6 +18,11 @@
     "type": 0,
     "label": "braching to data/page.json",
     "link": "page.json"
+  },
+  {
+    "type": 1,
+    "label": "-",
+    "link": ""
   }
 ]
   
