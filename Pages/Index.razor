@@ -1,0 +1,118 @@
+﻿@page "/"
+@inject HttpClient Http
+@inject IJSRuntime JSRuntime
+@inject Blazored.LocalStorage.ILocalStorageService localStorage 
+@using System.Diagnostics
+<PageTitle>Blazor-Links</PageTitle>
+
+@*
+@jussivirkkala
+2023-08-04 First version
+*@
+
+@if (links == null)
+{
+    <em>Loading @loaded...</em>  
+}
+else
+{
+    <table class="table">
+        <tbody>
+            @foreach (var link_item in links)
+            {
+                <tr>
+                    @switch(link_item.type)
+                    {
+                    case 0:
+                        <td @onclick="() => load(link_item.link)"><a href="">@link_item.label</a></td>
+                        break;
+                    case 1:
+                        <td>@link_item.label</td>
+                        break;
+                    case 2:
+                        <td @onclick="() => open(link_item.link)"><a href="">@link_item.label</a></td>
+                        break;
+                    case 3:
+                        <td @onclick="() => open_user(link_item.link)"><a href="">@link_item.label</a></td>
+                        break;
+                    default:
+                        <td>unknown type: @link_item.type</td>
+                        break;
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <input type="text" size="10" @bind="@username">
+    <br>
+    <input type="password" size="10" @bind="@password">
+    <br>
+    <button class="btn btn-primary" @onclick="saveSettings">Save</button>    
+}
+
+@code {
+    private string username = "username";
+    private string password = "password";
+
+    public class link_item
+    {
+        public int? type { get; set; }
+        public string? label { get; set; }
+        public string? link { get; set; }
+    }
+    private link_item[]? links=null;
+
+    // Load default list
+    string loaded = "main.json";
+
+    protected override async Task OnInitializedAsync()
+    {
+        string saved = await localStorage.GetItemAsync<String>("saved");
+        if (saved!=null)
+        {
+            username = await localStorage.GetItemAsync<String>("username");
+            password = await localStorage.GetItemAsync<String>("password");
+            loaded = await localStorage.GetItemAsync<String>("set");
+        }
+        load(loaded);
+    }
+
+    // Load links
+    private async void load(string? set)
+    {
+        try
+        {
+            var randomid = Guid.NewGuid().ToString();
+            var url_get = $"data/{set}?{randomid}";
+            links= await Http.GetFromJsonAsync<link_item[]>(url_get);
+            loaded = set;
+        }
+        catch (HttpRequestException ex)
+        {
+            links = null;
+        }
+        await InvokeAsync(() =>
+        {
+            StateHasChanged();
+        });
+    }
+
+    private void open(string link)
+    {
+        JSRuntime.InvokeAsync<string>("open", link, "_blank");
+    }
+    private void open_user(string link)
+    {
+        link = "https://"+System.Web.HttpUtility.UrlEncode(username) + ":" + System.Web.HttpUtility.UrlEncode(password) + "@" + link;
+        open(link);
+    }
+
+    private async void saveSettings()
+    {
+       await localStorage.SetItemAsync("username", username);
+       await localStorage.SetItemAsync("password", password);
+       await localStorage.SetItemAsync("set", loaded);
+       await localStorage.SetItemAsync("saved", DateTime.Now.ToString("o"));
+    }
+}

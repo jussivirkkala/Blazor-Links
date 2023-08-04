@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor-Links", "Blazor-Links.csproj", "{FAF32BB2-18C4-4658-83B9-9894BE010697}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FAF32BB2-18C4-4658-83B9-9894BE010697}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAF32BB2-18C4-4658-83B9-9894BE010697}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAF32BB2-18C4-4658-83B9-9894BE010697}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAF32BB2-18C4-4658-83B9-9894BE010697}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {25C2FDFE-CD2C-487C-821B-34224F41700D}
+	EndGlobalSection
+EndGlobal
