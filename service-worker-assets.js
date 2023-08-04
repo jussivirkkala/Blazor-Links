@@ -174,7 +174,7 @@
     },
     {
       "hash": "sha256-qCJXk5KK0gfveo0GnB5bmG+BnfYT1ve8ACmhPhhzcSY=",
-      "url": "data\/page1.json"
+      "url": "data\/page.json"
     },
     {
       "hash": "sha256-oEo6d+KqX5fjxTiZk\/w9NB3Mi0+ycS5yLwCKwr4IkbA=",
