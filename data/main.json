@@ -1,0 +1,23 @@
+[
+  {
+    "type": 1,
+    "label": "See data/main.json",
+    "link": ""
+  },
+  {
+    "type": 2,
+    "label": "links e.g. blazor.net",
+    "link": "https://www.blazor.net"
+  },
+  {
+    "type": 3,
+    "label": "links with https://username:password@www.something.com",
+    "link": "wwww.something.com"
+  },
+  {
+    "type": 0,
+    "label": "braching to data/page.json",
+    "link": "page.json"
+  }
+]
+  
