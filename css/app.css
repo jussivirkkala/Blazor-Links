@@ -1,11 +1,11 @@
 body {
-  overscroll-behavior: contain;
+    overscroll-behavior: contain;
 }
-
 
 h1:focus {
     outline: none;
 }
+
 
 tr {
     border: 1px solid #dddddd;

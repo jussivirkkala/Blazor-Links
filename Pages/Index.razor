@@ -14,9 +14,7 @@ Demonstrating Blazor app with links from .json files
 2023-08-04 First version. Using <BlazorEnableCompression>false</BlazorEnableCompression>
 *@
 
-<div class="page">
-    <main>
-        <article class="content px-4">
+
 @if (links == null)
 {
     <em>Loading @loaded...</em> <em @onclick="() => load_default()"><a href="">main.json</a> </em>
@@ -58,12 +56,9 @@ else
     <br>
     <button class="btn btn-primary" @onclick="saveSettings">Save</button>
     <br>    
-    <p>v2023-08-04</p>
+    <p>v2023-08-05</p>
 }
 
-</article>
-</main>
-</div>
 
 @code {
     private string username = "username";
