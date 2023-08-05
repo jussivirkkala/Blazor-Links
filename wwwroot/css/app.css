@@ -2,6 +2,9 @@ h1:focus {
     outline: none;
 }
 
+body {
+  overscroll-behavior: contain;
+}
 
 tr {
     border: 1px solid #dddddd;
