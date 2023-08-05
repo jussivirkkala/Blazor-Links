@@ -1,12 +1,11 @@
-h1:focus {
-    outline: none;
-}
-
-# no refresh with pull down
 body {
   overscroll-behavior: contain;
 }
 
+
+h1:focus {
+    outline: none;
+}
 
 tr {
     border: 1px solid #dddddd;
