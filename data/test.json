@@ -1,7 +1,7 @@
 [
   {
     "type": 1,
-    "label": "See data/main.json v1.0.2",
+    "label": "See TST data/main.json v1.0.2",
     "link": ""
   },
   {
@@ -26,8 +26,8 @@
   },
   {
     "type": 0,
-    "label": "braching to data/page.json",
-    "link": "page.json"
+    "label": "main to data/page.json",
+    "link": "main.json"
   },
   {
     "type": 1,
