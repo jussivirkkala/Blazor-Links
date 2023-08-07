@@ -2,16 +2,7 @@
   {
     "type": 1,
     "label": "This is data/page.json",
-  },
-  {
-    "type": 0,
-    "label": "Back to data/main.json",
-    "link": "main.json"
-  },
-  {
-    "type": 1,
-    "label": "-",
-    "link": ""
   }
 ]
+
   
