@@ -33,7 +33,8 @@ else
                         <td @onclick="() => load(link_item.link)"><a href="">@link_item.label</a></td>
                         break;
                     case 1:
-                        <td>@link_item.label</td>
+                        // 2023-08-07 MarkupString
+                        <td>@((MarkupString)link_item.label)</td>
                         break;
                     case 2:
                         <td @onclick="() => open(link_item.link)"><a href="">@link_item.label</a></td>
@@ -56,7 +57,7 @@ else
     <br>
     <button class="btn btn-primary" @onclick="saveSettings">Save</button>
     <br>    
-    <p>v2023-08-06</p>
+    <p>v2023-08-07</p>
 }
 
 
@@ -115,8 +116,11 @@ else
     {
         JSRuntime.InvokeAsync<string>("open", link, "_blank");
     }
+
+    // 2023-06-07 Assuming https://
     private void open_user(string link)
     {
+        link = link.Substring(9);
         link = "https://"+System.Web.HttpUtility.UrlEncode(username) + ":" + System.Web.HttpUtility.UrlEncode(password) + "@" + link;
         open(link);
     }

@@ -1,7 +1,7 @@
 [
   {
     "type": 1,
-    "label": "See data/main.json v1.0.2",
+    "label": "<b>See data/main.json v1.0.3</b>",
     "link": ""
   },
   {
@@ -12,23 +12,12 @@
   {
     "type": 3,
     "label": "links with https://username:password@www.something.com",
-    "link": "wwww.something.com"
+    "link": "https://wwww.something.com"
   },
-  {
-    "type": 3,
-    "label": "laiteohje",
-    "link": "hus-sp01.hosting.innofactor.com/kuvantaminen/Handbook_Lib/Stratus%20laiteohje-1.pdf"
-  },
-
   {
     "type": 0,
     "label": "braching to data/page.json",
     "link": "page.json"
-  },
-  {
-    "type": 1,
-    "label": "-",
-    "link": ""
   }
 ]
   
