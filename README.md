@@ -22,10 +22,6 @@ If you are just cloning repository and not rebuilding binary (not recommended, y
 
 After you deploy using Visual Studio 2022 or dotnet in command line folder Blazor-Links\bin\Release\net7.0\browser-wasm\publish\wwwroot contains
 
-dotnet publish -c Release
-
-Blazor-Links\bin\Release\net7.0\publish\
-
 | Publish folder| Content|
 | -------- | ------- |
 | _framework | binary files |
@@ -35,5 +31,3 @@ Blazor-Links\bin\Release\net7.0\publish\
 Before copying these files
 
 Modify in correct folder e.g. <base href="/blazor/edf/" /> in publish\wwwroot\index.html.
-
-dotnet publish -c Release
