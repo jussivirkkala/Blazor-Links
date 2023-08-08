@@ -128,7 +128,8 @@ else
     // 2023-06-07 Assuming https://
     private void open_user(string link)
     {
-        link = link.Substring(9);
+        // https:// zero index
+        link = link.Substring(8);
         link = "https://"+System.Web.HttpUtility.UrlEncode(username) + ":" + System.Web.HttpUtility.UrlEncode(password) + "@" + link;
         open(link);
     }
