@@ -1,23 +1,25 @@
 ﻿@page "/"
 @inject HttpClient Http
 @inject IJSRuntime JSRuntime
-@inject Blazored.LocalStorage.ILocalStorageService localStorage 
 @using System.Diagnostics
 <PageTitle>Blazor-Links</PageTitle>
 
 @*
-@jussivirkkala
+@using Microsoft.JSInterop
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
 
 Demonstrating Blazor app with links from .json files
+@jussivirkkala
 
 -Displaying 
 2023-08-04 First version. Using <BlazorEnableCompression>false</BlazorEnableCompression>
+2023-08-07 Assuming https:// and MarkupString
+2023-08-08 Correct 8->9. 
 *@
-
 
 @if (links == null)
 {
-    <em>Loading @loaded...</em> <em @onclick="() => load_default()"><a href="">main.json</a> </em>
+    <em>Loading @set...</em> <em @onclick="() => load_default()"><a href="">main.json</a> </em>
     
 }
 else
@@ -33,7 +35,8 @@ else
                         <td @onclick="() => load(link_item.link)"><a href="">@link_item.label</a></td>
                         break;
                     case 1:
-                        <td>@link_item.label</td>
+                        // 2023-08-07 MarkupString
+                        <td>@((MarkupString)link_item.label)</td>
                         break;
                     case 2:
                         <td @onclick="() => open(link_item.link)"><a href="">@link_item.label</a></td>
@@ -49,14 +52,13 @@ else
             }
         </tbody>
     </table>
-
     <input type="text" size="10" @bind="@username">
     <br>
     <input type="password" size="10" @bind="@password">
     <br>
     <button class="btn btn-primary" @onclick="saveSettings">Save</button>
-    <br>    
-    <p>v2023-08-06</p>
+    <br>
+    <em>v2023-08-08</em>
 }
 
 
@@ -73,28 +75,35 @@ else
     private link_item[]? links=null;
 
     // Load default list
-    string loaded = "main.json";
+    string set;
 
     protected override async Task OnInitializedAsync()
     {
+        /*
         string saved = await localStorage.GetItemAsync<String>("saved");
         if (saved!=null)
-        {
+            {
             username = await localStorage.GetItemAsync<String>("username");
             password = await localStorage.GetItemAsync<String>("password");
-            loaded = await localStorage.GetItemAsync<String>("set");
+            set = await localStorage.GetItemAsync<String>("set");
         }
-        load(loaded);
+        */
+        username = await GetItemAsync("username");
+        password = await GetItemAsync("password");
+        set = await GetItemAsync("set");
+        if (set == null) set = "main.json";
+        load(set);
     }
 
     // Load links
-    private async void load(string? set)
+    // 2023-08-08 set->page
+    private async void load(string? page)
     {
         try
         {
-            loaded = set;
+            this.set = page;
             var randomid = Guid.NewGuid().ToString();
-            var url_get = $"data/{set}?{randomid}";
+            var url_get = $"data/{page}?{randomid}";
             links= await Http.GetFromJsonAsync<link_item[]>(url_get);
         }
         catch (HttpRequestException ex)
@@ -115,17 +124,36 @@ else
     {
         JSRuntime.InvokeAsync<string>("open", link, "_blank");
     }
+
+    // 2023-06-07 Assuming https://
     private void open_user(string link)
     {
+        // https:// zero index
+        link = link.Substring(8);
         link = "https://"+System.Web.HttpUtility.UrlEncode(username) + ":" + System.Web.HttpUtility.UrlEncode(password) + "@" + link;
         open(link);
     }
 
     private async void saveSettings()
     {
-       await localStorage.SetItemAsync("username", username);
-       await localStorage.SetItemAsync("password", password);
-       await localStorage.SetItemAsync("set", loaded);
-       await localStorage.SetItemAsync("saved", DateTime.Now.ToString("o"));
+        /*
+        await localStorage.SetItemAsync("username", username);
+        await localStorage.SetItemAsync("password", password);
+        await localStorage.SetItemAsync("set", set);
+        await localStorage.SetItemAsync("saved", DateTime.Now.ToString("o"));
+        */
+        await SetItemAsync("username", username);
+        await SetItemAsync("password", password);
+        await SetItemAsync("set", set);
+    }
+
+    private async Task SetItemAsync(string key, string value)
+    {
+        await JSRuntime.InvokeVoidAsync("localStorage.setItem", key, value);
+    }
+
+    private async Task<string> GetItemAsync(string key)
+    {
+        return await JSRuntime.InvokeAsync<string>("localStorage.getItem", key);
     }
 }
