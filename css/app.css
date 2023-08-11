@@ -1,15 +1,12 @@
+html {
+overscroll-behavior : none;
+}
+
 body {
-    overscroll-behavior: contain;
-}
-
-h1:focus {
-    outline: none;
+overflow-y: scroll;
 }
 
 
-tr {
-    border: 1px solid #dddddd;
-}
 .content {
     padding-top: 1.1rem;
     font-size: medium;
