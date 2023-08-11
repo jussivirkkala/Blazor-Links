@@ -10,7 +10,7 @@ overscroll-behavior : contain;
 
 .content {
     padding-top: 1.1rem;
-    font-size: medium;
+    font-size: large;
 }
 
 #blazor-error-ui {
