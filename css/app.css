@@ -4,9 +4,7 @@ overscroll-behavior : none;
 
 body {
 overflow-y: scroll;
-#
 overscroll-behavior : contain;
-
 }
 
 
