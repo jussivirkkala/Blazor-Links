@@ -1,18 +1,12 @@
 [
   {
     "type": 1,
-    "label": "This is data/page.json",
+    "label": "See data/page.json",
     "link": ""
   },
   {
     "type": 0,
-    "label": "Back to data/main.json",
+    "label": "braching to data/main.json",
     "link": "main.json"
-  },
-  {
-    "type": 1,
-    "label": "-",
-    "link": ""
   }
 ]
-  
