@@ -8,8 +8,8 @@
   "prefer_related_applications": false,
   "icons": [
     {
-      "src": "Blazor-Links.svg",
-      "type": "image/svg",
+      "src": "Blazor-Links.png",
+      "type": "image/png",
       "sizes": "512x512"
     }
   ]

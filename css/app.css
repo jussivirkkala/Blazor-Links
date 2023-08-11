@@ -1,11 +1,5 @@
-html {
-
-overscroll-behavior: none;
-}
-
 body {
-    
-overflow-y:scroll;
+    overscroll-behavior: contain;
 }
 
 h1:focus {
@@ -16,10 +10,9 @@ h1:focus {
 tr {
     border: 1px solid #dddddd;
 }
-
 .content {
     padding-top: 1.1rem;
-    font-size: large;
+    font-size: medium;
 }
 
 #blazor-error-ui {
