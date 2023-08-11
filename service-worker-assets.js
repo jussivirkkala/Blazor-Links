@@ -9,10 +9,6 @@
       "url": "_framework\/dotnet.timezones.blat"
     },
     {
-      "hash": "sha256-tO5O5YzMTVSaKBboxAqezOQL9ewmupzV2JrB5Rkc8a4=",
-      "url": "_framework\/icudt.dat"
-    },
-    {
       "hash": "sha256-SZLtQnRc0JkwqHab0VUVP7T3uBPSeYzxzDnpxPpUnHk=",
       "url": "_framework\/icudt_CJK.dat"
     },
@@ -25,7 +21,11 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-magR87PbfvdW+JRySJCM37h3uLwhrTlZWkMJEnG3Q2A=",
+      "hash": "sha256-tO5O5YzMTVSaKBboxAqezOQL9ewmupzV2JrB5Rkc8a4=",
+      "url": "_framework\/icudt.dat"
+    },
+    {
+      "hash": "sha256-bHKT1etETB35svKdox+fjEJsjuIfkY5AUnGNypR7MhE=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -181,5 +181,5 @@
       "url": "manifest.json"
     }
   ],
-  "version": "\/YiHdgb9"
+  "version": "EBuNxoGJ"
 };
