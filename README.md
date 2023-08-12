@@ -1,18 +1,43 @@
 # Blazor-Links
 
-2023-08-05 Cross platform, browser based Blazor progressive web application (PWA) for displaying html links with page navigation. Also supportin https://username:password@ links. PASSWORD IS STORED IN LOCALSTORAGE
+2023-08-12 Cross platform, browser based Blazor progressive web application (PWA) for displaying html links with page navigation. Links are read from json file. Also supporting https://username:password@ links. ISERNAME AND PASSWORD IS STORED IN LOCALSTORAGE
 
-This repository contains both Blazor C# source code and binary together. . You can test the from [](https://jussivirkkala.github.io/Blazor-Links/)https://jussivirkkala.github.io/Blazor-Links/
+This repository contains both Blazor C# source code and binary together (I know it is not optimal). You can test from from [](https://jussivirkkala.github.io/Blazor-Links/)https://jussivirkkala.github.io/Blazor-Links/
 
 # Cloning
 
-If you are just cloning repository and not rebuilding binary (not recommended as you should not trust any binary files) then you do not need to modify \wwwroot folder but just once index.html for correct location
+If you are just cloning repository and not rebuilding binary (not recommended as you should never trust any binary files) then you do not need to modify only modify \index.html for correct location
 ```
   <title>Blazor-Links</title>
     <base href="https://jussivirkkala.github.io/Blazor-Links/" />
     <link href="css/app.css" rel="stylesheet" />
     <link href="manifest.json" rel="manifest" />
 ```
+For custom links modify \data\.json files. Main.json is loaded by default
+```
+[
+  {
+    "type": 1,
+    "label": "<b>See data/main.json v1.0.5</b>",
+    "link": ""
+  },
+  {
+    "type": 2,
+    "label": "links e.g. blazor.net",
+    "link": "https://www.blazor.net"
+  },
+  {
+    "type": 3,
+    "label": "links with https://username:password@www.something.com",
+    "link": ""
+  },
+  {
+    "type": 0,
+    "label": "branch to data/page.json",
+    "link": "page.json"
+  }
+]```
+There are different types of links: 0 branch links indicating \data\.json file, 1 labels supporting html, 2 standard links, and 3 username:password@ links
 
 # Mobile
 
