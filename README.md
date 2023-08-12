@@ -15,24 +15,29 @@ If you are just cloning repository and not rebuilding binary (not recommended as
 ```
 
 # Mobile
+
+
+With iOS (tested iPadOS 16.6) you can disable pull to refresh with following css.
 ```
 html {
 overscroll-behavior : none;
 }
-```
-
-With iOS
-```
 
 body {
 overflow-y: scroll;
 }
 ```
-With Android
+
+With Android (tested Android 13)
+```
+html {
+overscroll-behavior : none;
+}
+
 body {
-overflow-y: scroll;
 overscroll-behavior : contain;
 }
+```
 
 
 

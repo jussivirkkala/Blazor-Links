@@ -8,6 +8,7 @@ html {
 
 body {
     overflow-y: scroll;
+    overscroll-behavior : contain;
 }
 
 .content {
