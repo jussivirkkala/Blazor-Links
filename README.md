@@ -14,6 +14,28 @@ If you are just cloning repository and not rebuilding binary (not recommended as
     <link href="manifest.json" rel="manifest" />
 ```
 
+# Mobile
+```
+html {
+overscroll-behavior : none;
+}
+```
+
+With iOS
+```
+
+body {
+overflow-y: scroll;
+}
+```
+With Android
+body {
+overflow-y: scroll;
+overscroll-behavior : contain;
+}
+
+
+
 data folder .json files for custom content and css folder custom look. 
 
 
