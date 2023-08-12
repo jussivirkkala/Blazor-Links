@@ -1,19 +1,19 @@
 # Blazor-Links
 
-2023-08-12 Cross platform, browser based Blazor progressive web application (PWA) for displaying html links with page navigation. Links are read from json file. Also supporting https://username:password@ links. ISERNAME AND PASSWORD IS STORED IN LOCALSTORAGE
+2023-08-12 Cross platform, browser based Blazor progressive web application (PWA) for displaying html links with page navigation. Links are read from json file. Also supporting https://username:password@ links. NOTICE THAT USERNAME AND PASSWORD IS STORED IN BROWSER LOCALSTORAGE. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND...
 
-This repository contains both Blazor C# source code and binary together (I know it is not optimal). You can test from from [](https://jussivirkkala.github.io/Blazor-Links/)https://jussivirkkala.github.io/Blazor-Links/
+Repository contains both Blazor C# source code and binary together. I know it is not optimal. You can test from [](https://jussivirkkala.github.io/Blazor-Links/)https://jussivirkkala.github.io/Blazor-Links/
 
 # Cloning
 
-If you are just cloning repository and not rebuilding binary (not recommended as you should never trust any binary files) then you do not need to modify only modify \index.html for correct location
+If you are just cloning repository and not rebuilding binary (not recommended as you should never trust any binary files) then you need to modify only \index.html for correct location
 ```
   <title>Blazor-Links</title>
     <base href="https://jussivirkkala.github.io/Blazor-Links/" />
     <link href="css/app.css" rel="stylesheet" />
     <link href="manifest.json" rel="manifest" />
 ```
-For custom links modify \data\.json files. Main.json is loaded by default
+For custom links modify \data\.json files. Main.json is loaded by default. 
 ```
 [
   {
@@ -36,48 +36,35 @@ For custom links modify \data\.json files. Main.json is loaded by default
     "label": "branch to data/page.json",
     "link": "page.json"
   }
-]```
-There are different types of links: 0 branch links indicating \data\.json file, 1 labels supporting html, 2 standard links, and 3 username:password@ links
+]
+```
+There are different types of links: 0 branch links indicating \data\.json file, 1 labels supporting html, 2 standard links, and 3 username:password@ links. You can also modify .\index.html and \css for custon layout.
 
 # Mobile
 
-
-With iOS (tested iPadOS 16.6) you can disable pull to refresh with following css.
+For iOS (tested iPadOS 16.6) and Anroid (tested Android 14) you can disable pull to refresh, text selection with following \css\app.css.
 ```
+html {
+    overscroll-behavior : none;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+body {
+    overflow-y: scroll;
+    overscroll-behavior : contain;
+}
 html {
 overscroll-behavior : none;
 }
-
-body {
-overflow-y: scroll;
-}
 ```
-
-With Android (tested Android 13)
-```
-html {
-overscroll-behavior : none;
-}
-
-body {
-overscroll-behavior : contain;
-}
-```
-To disble pinch to zoom in or out
-
+To disable mobile pinch to zoom in or out \index.html contains following lines
 ```
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimum-scale=1, height=device-height, viewport-fit=cover" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
 ```
-
-
-
-data folder .json files for custom content and css folder custom look. 
-
-
-If you clone repository and want to modify links you can modify also \data \css folders
 
 | App folder| Content|
 | -------- | ------- |
