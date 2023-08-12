@@ -1,15 +1,18 @@
 html {
     overscroll-behavior : none;
+
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
 }
 
 body {
     overflow-y: scroll;
 }
 
-
 .content {
     padding-top: 1.1rem;
-    font-size: large;
+    font-size: medium;
 }
 
 #blazor-error-ui {
