@@ -1,10 +1,9 @@
 html {
-overscroll-behavior : none;
+    overscroll-behavior : none;
 }
 
 body {
-overflow-y: scroll;
-overscroll-behavior : contain;
+    overflow-y: scroll;
 }
 
 
