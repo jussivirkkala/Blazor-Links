@@ -18,6 +18,7 @@ Demonstrating Blazor app with links from .json files
 2023-08-08 Correct 9->8.
 2023-08-10 Removed saving password.
 2023-08-11 Stop saving username, password.
+2023-08-12 Remembering last selection, no save button.
 *@
 
 @if (links == null)
@@ -53,15 +54,14 @@ else
                     }
                 </tr>
             }
+            <tr>username:<input type="text" autocomplete="on" size="10" @bind="@username"></tr>
+            <tr>password:<input type="password" autocomplete="on" size = "10" @bind = "@password" /></tr>
+            @*
+            <button class="btn btn-primary" @onclick="saveSettings">Save</button>
+            *@
+           <tr>v2023-08-12</tr>
         </tbody>
     </table>
-    <input type="text" size="10" @bind="@username">
-    <br>
-    <input type="password" autocomplete="on" size = "10" @bind = "@password" >
-    <br>
-    <button class="btn btn-primary" @onclick="saveSettings">Save</button>
-    <br>
-    <em>v2023-08-11</em>
 }
 
 
@@ -84,7 +84,7 @@ else
     {
         /*
         string saved = await localStorage.GetItemAsync<String>("saved");
-        if (saved!=null)
+            if (saved!=null)
             {
             username = await localStorage.GetItemAsync<String>("username");
             password = await localStorage.GetItemAsync<String>("password");
@@ -108,6 +108,7 @@ else
             var randomid = Guid.NewGuid().ToString();
             var url_get = $"data/{page}?{randomid}";
             links= await Http.GetFromJsonAsync<link_item[]>(url_get);
+            saveSettings(); // 2023-08-13
         }
         catch (HttpRequestException ex)
         {
