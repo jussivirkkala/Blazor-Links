@@ -1,6 +1,8 @@
 # Blazor-Links
 
-2023-08-12 Cross platform, browser based Blazor progressive web application (PWA) for displaying html links with page navigation. Links are read from json file. Also supporting https://username:password@ links. NOTICE THAT USERNAME AND PASSWORD IS STORED IN BROWSER LOCALSTORAGE. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND...
+2023-08-10 Cross platform, browser based Blazor progressive web application (PWA) for displaying html links with page navigation. Links are read from json file. Also supporting https://username:password@ links. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND...
+
+NOTICE THAT USERNAME AND PASSWORD ARE STORED IN BROWSER LOCALSTORAGE. APPS IN SAME DOMAIN AND XSS CAN ACCESS THOSE.
 
 Repository contains both Blazor C# source code and binary together. I know it is not optimal. You can test from [](https://jussivirkkala.github.io/Blazor-Links/)https://jussivirkkala.github.io/Blazor-Links/
 
@@ -66,31 +68,12 @@ To disable mobile pinch to zoom in or out \index.html contains following lines
     <meta name="apple-mobile-web-app-capable" content="yes" />
 ```
 
-| App folder| Content|
-| -------- | ------- |
-| _framework| 
-| index.html | , deployment uses formdata\index.html files|
-| css| css files, deployment uses formdata folder |
-| data| .json files for links, deployment uses formdata folder | 
+
+# Build, deploy
 
 
-
-# Deploy
-
-After you deploy using Visual Studio 2022 or dotnet in command line folder Blazor-Links\bin\Release\net7.0\browser-wasm\publish\wwwroot contains
-
+```
 dotnet publish -c Release
 
 Blazor-Links\bin\Release\net7.0\publish\
-
-| Publish folder| Content|
-| -------- | ------- |
-| _framework | binary files |
-| data |.json  |
-| index.html |.json  |
-
-Before copying these files
-
-Modify in correct folder e.g. <base href="/blazor/edf/" /> in publish\wwwroot\index.html.
-
-dotnet publish -c Release
+```

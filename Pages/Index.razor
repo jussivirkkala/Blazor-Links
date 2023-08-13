@@ -16,7 +16,7 @@ Demonstrating Blazor app with links from .json files
 2023-08-04 First version. Using <BlazorEnableCompression>false</BlazorEnableCompression>
 2023-08-07 Assuming https:// and MarkupString
 2023-08-08 Correct 9->8.
-2023-08-09 
+2023-08-10 Removed saving password
 *@
 
 @if (links == null)
@@ -56,11 +56,11 @@ else
     </table>
     <input type="text" size="10" @bind="@username">
     <br>
-    <input type="password" size="10" @bind="@password">
+    <input type="password" autocomplete="on" size = "10" @bind = "@password" >
     <br>
     <button class="btn btn-primary" @onclick="saveSettings">Save</button>
     <br>
-    <em>v2023-08-09</em>
+    <em>v2023-08-10</em>
 }
 
 
@@ -91,7 +91,7 @@ else
         }
         */
         username = await GetItemAsync("username");
-        password = await GetItemAsync("password");
+        // password = await GetItemAsync("password");
         set = await GetItemAsync("set");
         if (set == null) set = "main.json";
         load(set);
@@ -145,7 +145,7 @@ else
         await localStorage.SetItemAsync("saved", DateTime.Now.ToString("o"));
         */
         await SetItemAsync("username", username);
-        await SetItemAsync("password", password);
+        // await SetItemAsync("password", password);
         await SetItemAsync("set", set);
     }
 

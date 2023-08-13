@@ -1,7 +1,7 @@
 [
   {
     "type": 1,
-    "label": "<b>See data/main.json v1.0.4</b>",
+    "label": "<b>See data/main.json v1.0.6</b>",
     "link": ""
   },
   {
@@ -16,7 +16,7 @@
   },
   {
     "type": 0,
-    "label": "braching to data/page.json",
+    "label": "branch to data/page.json",
     "link": "page.json"
   }
 ]
