@@ -19,13 +19,12 @@ Demonstrating Blazor app with links from .json files
 2023-08-10 Removed saving password.
 2023-08-11 Stop saving username, password.
 2023-08-12 Remembering last selection, no save button.
-2023-08-14 Displaying username, password only in main.json
+2023-08-15 Remove <em>
 *@
 
 @if (links == null)
 {
-    <em>Loading @set...</em> <em @onclick="() => load_default()"><a href="">main.json</a> </em>
-    
+    <p>Loading @set...<@onclick="() => load_default()"><a href="">main.json</a></p>
 }
 else
 {
