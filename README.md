@@ -1,10 +1,9 @@
 # Blazor-Links
 
-2023-08-10 Cross platform, browser based Blazor progressive web application (PWA) for displaying html links with page navigation. Links are read from json file. Also supporting https://username:password@ links. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND...
+2023-08-13 Cross platform, browser based Blazor progressive web application (PWA) for displaying html links with page navigation. Links are read from json file. Also supporting https://username:password@ links. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND (MIT)...
 
-NOTICE THAT USERNAME AND PASSWORD ARE STORED IN BROWSER LOCALSTORAGE. APPS IN SAME DOMAIN AND XSS CAN ACCESS THOSE.
 
-Repository contains both Blazor C# source code and binary together. I know it is not optimal. You can test from [](https://jussivirkkala.github.io/Blazor-Links/)https://jussivirkkala.github.io/Blazor-Links/
+Repository contains both Blazor C# source code and binary together. You can test from [](https://jussivirkkala.github.io/Blazor-Links/)https://jussivirkkala.github.io/Blazor-Links/
 
 # Cloning
 
@@ -44,7 +43,7 @@ There are different types of links: 0 branch links indicating \data\.json file, 
 
 # Mobile
 
-For iOS (tested iPadOS 16.6) and Anroid (tested Android 14) you can disable pull to refresh, text selection with following \css\app.css.
+For iOS (tested iPadOS, iOS 16.6) and Anroid (tested Android 14) you can disable pull to refresh, text selection with following \css\app.css.
 ```
 html {
     overscroll-behavior : none;
@@ -68,12 +67,11 @@ To disable mobile pinch to zoom in or out \index.html contains following lines
     <meta name="apple-mobile-web-app-capable" content="yes" />
 ```
 
-
 # Build, deploy
-
 
 ```
 dotnet publish -c Release
 
 Blazor-Links\bin\Release\net7.0\publish\
 ```
+End
