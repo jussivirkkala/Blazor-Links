@@ -110,7 +110,7 @@ else
         try
         {
             this.set = page;
-            var randomid = Guid.NewGuid().ToString();
+            var randomid = Guid.NewGuid().ToString(); // bypass cache
             var url_get = $"data/{page}?{randomid}";
             links= await Http.GetFromJsonAsync<link_item[]>(url_get);
             saveSettings(); // 2023-08-13
