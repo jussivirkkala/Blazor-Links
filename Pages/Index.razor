@@ -19,18 +19,19 @@ Demonstrating Blazor app with links from .json files
 2023-08-10 Removed saving password.
 2023-08-11 Stop saving username, password.
 2023-08-12 Remembering last selection, no save button.
-2023-08-14 Displaying username, password only in main.json
+2023-08-14 Remove <em>
+2023-08-15 v1.0.8 Option 4.
 *@
 
 @if (links == null)
 {
-    <em>Loading @set...</em> <em @onclick="() => load_default()"><a href="">main.json</a> </em>
-    
+    <p>Loading @set...<@onclick="() => load_default()"><a href="">main.json</a></></p>
 }
 else
 {
     <table class="table">
         <tbody>
+            @if (true) passlink = false;
             @foreach (var link_item in links)
             {
                 <tr>
@@ -44,24 +45,28 @@ else
                         <td>@((MarkupString)link_item.label)</td>
                         break;
                     case 2:
-                        <td @onclick="() => open(link_item.link)"><a href="">@link_item.label</a></td>
+                            <td @onclick="() => open(link_item.link)"><a href="">@link_item.label</a></td>
+                            break;
+                        case 3:
+                            passlink = true;
+                            <td @onclick="() => open_user(link_item.link)"><a href="">@link_item.label</a></td>
                         break;
-                    case 3:
-                        <td @onclick="() => open_user(link_item.link)"><a href="">@link_item.label</a></td>
-                        passlink = true;
-                        break;
-                    default:
+                        case 4:
+                        <t>path:<input type="text" autocomplete="on" size="10" @bind="@path"></t>
+                            break;
+                        default:
                         <td>unknown type: @link_item.type</td>
                         break;
                     }
                 </tr>
             }
-            @if(set.Equals("main.json"))
+            @if (passlink)
             {
                 <tr>username:<input type="text" autocomplete="on" size="10" @bind="@username"></tr>
                 <tr>password:<input type="password" autocomplete="on" size = "10" @bind = "@password" /></tr>
-                <tr>v2023-08-13</tr>
             }
+            <tr>v2023-08-15</tr>
+
             @*
             <button class="btn btn-primary" @onclick="saveSettings">Save</button>
             *@
@@ -74,6 +79,8 @@ else
     private bool passlink=false;
     private string username = "";
     private string password = "";
+    private string path = "";
+
 
     public class link_item
     {
@@ -101,6 +108,9 @@ else
         // password = await GetItemAsync("password");
         set = await GetItemAsync("set");
         if (set == null) set = "main.json";
+        path = await GetItemAsync("path");
+        if (path == null) path = @"data\";
+
         load(set);
     }
 
@@ -111,9 +121,9 @@ else
         try
         {
             this.set = page;
-            var randomid = Guid.NewGuid().ToString();
-            var url_get = $"data/{page}?{randomid}";
-            links= await Http.GetFromJsonAsync<link_item[]>(url_get);
+            var randomid = Guid.NewGuid().ToString(); // bypass cache
+            var url_get = $"{path}{page}?{randomid}";
+            links= await Http.GetFromJsonAsync<link_item[]>(url_get);            
             saveSettings(); // 2023-08-13
         }
         catch (HttpRequestException ex)
@@ -155,6 +165,7 @@ else
         // await SetItemAsync("username", username);
         // await SetItemAsync("password", password);
         await SetItemAsync("set", set);
+        await SetItemAsync("path", path);
     }
 
     private async Task SetItemAsync(string key, string value)
