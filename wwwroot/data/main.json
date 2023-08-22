@@ -21,8 +21,8 @@
   },
   {
     "type": 4,
-    "label": "branch to data/page.json",
-    "link": "page.json"
+    "label": "Data path",
+    "link": ""
   }
 
 ]
