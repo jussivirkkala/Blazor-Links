@@ -2,7 +2,7 @@
 @inject HttpClient Http
 @inject IJSRuntime JSRuntime
 @using System.Diagnostics
-<PageTitle>Blazor-Links</PageTitle>
+<PageTitle>KNF-laatulinkit</PageTitle>
 
 @*
 @using Microsoft.JSInterop
@@ -13,6 +13,7 @@ Demonstrating Blazor app with links from .json files
 @jussivirkkala
 
 -Displaying 
+2023-08-02 Changed indexes
 2023-08-04 First version. Using <BlazorEnableCompression>false</BlazorEnableCompression>
 2023-08-07 Assuming https:// and MarkupString
 2023-08-08 Correct 9->8.
@@ -20,53 +21,55 @@ Demonstrating Blazor app with links from .json files
 2023-08-11 Stop saving username, password.
 2023-08-12 Remembering last selection, no save button.
 2023-08-14 Remove <em>
-2023-08-15 v1.0.8 Option 4.
+2023-10-02 passlink
+2023-10-03 
 *@
 
 @if (links == null)
 {
-    <p>Loading @set...<@onclick="() => load_default()"><a href="">main.json</a></></p>
+    <p @onclick="() => load_default()"><a href="">Loading @set...</a></p>
 }
 else
 {
     <table class="table">
         <tbody>
-            @if (true) passlink = false;
+            @if(true)
+            {
+                passlink=false;
+            }
             @foreach (var link_item in links)
             {
                 <tr>
                     @switch(link_item.type)
                     {
-                    case 0:
-                        <td @onclick="() => load(link_item.link)"><a href="">@link_item.label</a></td>
-                        break;
-                    case 1:
-                        // 2023-08-07 MarkupString
-                        <td>@((MarkupString)link_item.label)</td>
+                    case 1:                        
+                        <td>@((MarkupString)link_item.label)</td> // 2023-08-07 MarkupString
                         break;
                     case 2:
-                            <td @onclick="() => open(link_item.link)"><a href="">@link_item.label</a></td>
-                            break;
-                        case 3:
-                            passlink = true;
-                            <td @onclick="() => open_user(link_item.link)"><a href="">@link_item.label</a></td>
+                        <td @onclick="() => load(link_item.link)"><a href="">@link_item.label</a></td>
                         break;
-                        case 4:
-                        <t>path:<input type="text" autocomplete="on" size="10" @bind="@path"></t>
-                            break;
-                        default:
+                    case 3:
+                        <td @onclick="() => open(link_item.link)"><a href="">@link_item.label</a></td>
+                        break;
+                    case 4:
+                        <td @onclick="() => open_user(link_item.link)"><a href="">@link_item.label</a></td>
+                        passlink = true;
+                        break;
+                    case 9:
+                        <tr>@link_item.label<input type="text" autocomplete="on" size="10" @bind="@path"></tr>
+                        break;
+                    default:
                         <td>unknown type: @link_item.type</td>
                         break;
                     }
                 </tr>
             }
-            @if (passlink)
+            @if(passlink)
             {
                 <tr>username:<input type="text" autocomplete="on" size="10" @bind="@username"></tr>
                 <tr>password:<input type="password" autocomplete="on" size = "10" @bind = "@password" /></tr>
             }
-            <tr>v2023-08-15</tr>
-
+            <tr>v2023-10-02</tr>
             @*
             <button class="btn btn-primary" @onclick="saveSettings">Save</button>
             *@
@@ -79,8 +82,6 @@ else
     private bool passlink=false;
     private string username = "";
     private string password = "";
-    private string path = "";
-
 
     public class link_item
     {
@@ -92,6 +93,7 @@ else
 
     // Load default list
     private string set;
+    private string path;
 
     protected override async Task OnInitializedAsync()
     {
@@ -109,8 +111,7 @@ else
         set = await GetItemAsync("set");
         if (set == null) set = "main.json";
         path = await GetItemAsync("path");
-        if (path == null) path = @"data\";
-
+        if (path == null) path = "data/";
         load(set);
     }
 
@@ -122,8 +123,8 @@ else
         {
             this.set = page;
             var randomid = Guid.NewGuid().ToString(); // bypass cache
-            var url_get = $"{path}{page}?{randomid}";
-            links= await Http.GetFromJsonAsync<link_item[]>(url_get);            
+            var url_get = $"{path}/{page}?{randomid}"; // $"data/{page}?{randomid}"
+            links= await Http.GetFromJsonAsync<link_item[]>(url_get);
             saveSettings(); // 2023-08-13
         }
         catch (HttpRequestException ex)

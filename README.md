@@ -1,20 +1,20 @@
 # Blazor-Links
 
-2023-08-13 Cross platform, browser based Blazor progressive web application (PWA) for displaying html links with page navigation. Links are read from json file. Also supporting https://username:password@ links. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND (MIT)...
+2023-10-02 Cross platform, browser based Blazor progressive web application (PWA) for displaying html links with page navigation. Links are read from json file. Also supporting https://username:password@ links. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND (MIT)...
 
 
 Repository contains both Blazor C# source code and binary together. You can test from [](https://jussivirkkala.github.io/Blazor-Links/)https://jussivirkkala.github.io/Blazor-Links/
 
 # Cloning
 
-If you are just cloning repository and not rebuilding binary (not recommended as you should never trust any binary files) then you need to modify only \index.html for correct location
+If you are just cloning repository and not rebuilding binary (not recommended as you should never trust any binary files) then you need to modify only \index.html for correct hosting location
 ```
   <title>Blazor-Links</title>
     <base href="https://jussivirkkala.github.io/Blazor-Links/" />
     <link href="css/app.css" rel="stylesheet" />
     <link href="manifest.json" rel="manifest" />
 ```
-For custom links modify \data\.json files. Main.json is loaded by default. 
+For custom links modify \data\.json files. Main.json is loaded by default. If you are 
 ```
 [
   {
@@ -23,17 +23,17 @@ For custom links modify \data\.json files. Main.json is loaded by default.
     "link": ""
   },
   {
-    "type": 2,
+    "type": 3,
     "label": "links e.g. blazor.net",
     "link": "https://www.blazor.net"
   },
   {
-    "type": 3,
+    "type": 4,
     "label": "links with https://username:password@www.something.com",
     "link": ""
   },
   {
-    "type": 0,
+    "type": 2,
     "label": "branch to data/page.json",
     "link": "page.json"
   }
@@ -70,8 +70,12 @@ To disable mobile pinch to zoom in or out \index.html contains following lines
 # Build, deploy
 
 ```
-dotnet publish -c Release
+dotnet publish -c release
 
-Blazor-Links\bin\Release\net7.0\publish\
+Blazor-Links\bin\Release\net7.0\publish\wwwroot
 ```
+
+You can remove from _framework *.gz and *.br files. Copy files into \ directory
+
+
 End
