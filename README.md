@@ -23,17 +23,17 @@ For custom links modify \data\.json files. Main.json is loaded by default.
     "link": ""
   },
   {
-    "type": 2,
+    "type": 3,
     "label": "links e.g. blazor.net",
     "link": "https://www.blazor.net"
   },
   {
-    "type": 3,
+    "type": 4,
     "label": "links with https://username:password@www.something.com",
     "link": ""
   },
   {
-    "type": 0,
+    "type": 2,
     "label": "branch to data/page.json",
     "link": "page.json"
   }
@@ -70,8 +70,12 @@ To disable mobile pinch to zoom in or out \index.html contains following lines
 # Build, deploy
 
 ```
-dotnet publish -c Release
+dotnet publish -c release
 
-Blazor-Links\bin\Release\net7.0\publish\
+Blazor-Links\bin\Release\net7.0\publish\wwwroot
 ```
+
+You can remove from _framework *.gz and *.br files. Copy files into \ directory
+
+
 End
