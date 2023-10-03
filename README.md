@@ -7,14 +7,14 @@ Repository contains both Blazor C# source code and binary together. You can test
 
 # Cloning
 
-If you are just cloning repository and not rebuilding binary (not recommended as you should never trust any binary files) then you need to modify only \index.html for correct location
+If you are just cloning repository and not rebuilding binary (not recommended as you should never trust any binary files) then you need to modify only \index.html for correct hosting location
 ```
   <title>Blazor-Links</title>
     <base href="https://jussivirkkala.github.io/Blazor-Links/" />
     <link href="css/app.css" rel="stylesheet" />
     <link href="manifest.json" rel="manifest" />
 ```
-For custom links modify \data\.json files. Main.json is loaded by default. 
+For custom links modify \data\.json files. Main.json is loaded by default. If you are 
 ```
 [
   {
