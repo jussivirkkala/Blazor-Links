@@ -18,11 +18,6 @@
     "type": 2,
     "label": "branch to data/page.json",
     "link": "page.json"
-  },
-  {
-    "type": 9,
-    "label": "path:",
-    "link": ""
   }
 
 ]
