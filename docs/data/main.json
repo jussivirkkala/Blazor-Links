@@ -1,27 +1,27 @@
 [
   {
     "type": 1,
-    "label": "<b>See data/main.json</b>",
-    "link": ""
-  },
-  {
-    "type": 3,
-    "label": "links e.g. blazor.net",
-    "link": "https://www.blazor.net"
-  },
-  {
-    "type": 4,
-    "label": "links with https://username:password@www.something.com",
+    "label": "<b>11See data/main.json v1.0.6</b>",
     "link": ""
   },
   {
     "type": 2,
+    "label": "links e.g. blazor.net",
+    "link": "https://www.blazor.net"
+  },
+  {
+    "type": 3,
+    "label": "links with https://username:password@www.something.com",
+    "link": ""
+  },
+  {
+    "type": 0,
     "label": "branch to data/page.json",
     "link": "page.json"
   },
   {
-    "type": 8,
-    "label": "Version",
+    "type": 4,
+    "label": "Data path, data/",
     "link": ""
   }
 
