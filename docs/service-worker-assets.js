@@ -193,11 +193,15 @@
       "url": "data\/page.json"
     },
     {
+      "hash": "sha256-wX1LB4yuBRFM4fmdSsH6jBlCch9uCHXV9uFTxnz2blQ=",
+      "url": "decode.min.js"
+    },
+    {
       "hash": "sha256-oEo6d+KqX5fjxTiZk\/w9NB3Mi0+ycS5yLwCKwr4IkbA=",
       "url": "icon-512.png"
     },
     {
-      "hash": "sha256-k31HFvJeRllJ5kGHhC6L5lqgrTiFN5hvWJh7uY\/Npcg=",
+      "hash": "sha256-W0befLlzP7v0VKn\/idH9jzWCr0V3QG8SxZsmy5XqViM=",
       "url": "index.html"
     },
     {
@@ -205,5 +209,5 @@
       "url": "manifest.json"
     }
   ],
-  "version": "jAFkvzP6"
+  "version": "Hd62E\/ko"
 };
