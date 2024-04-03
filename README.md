@@ -1,13 +1,13 @@
 # Blazor-Links
 
-2023-08-13 Cross platform, browser based Blazor progressive web application (PWA) for displaying html links with page navigation. Links are read from json file. Also supporting https://username:password@ links. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND (MIT)...
+2024-04-03 Cross platform, browser based Blazor progressive web application (PWA) for displaying html links with page navigation. Links are read from json file. Also supporting https://username:password@ links. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND (MIT)...
 
 
 Repository contains both Blazor C# source code and binary together. You can test from [](https://jussivirkkala.github.io/Blazor-Links/)https://jussivirkkala.github.io/Blazor-Links/
 
 # Cloning
 
-If you are just cloning repository and not rebuilding binary (not recommended as you should never trust any binary files) then you need to modify only \index.html for correct location
+If you are just cloning repository and not rebuilding binary (not recommended as you should never trust any binary files) then you need to modify only docs\index.html for correct location
 ```
   <title>Blazor-Links</title>
     <base href="https://jussivirkkala.github.io/Blazor-Links/" />
@@ -23,23 +23,23 @@ For custom links modify \data\.json files. Main.json is loaded by default.
     "link": ""
   },
   {
-    "type": 2,
+    "type": 3,
     "label": "links e.g. blazor.net",
     "link": "https://www.blazor.net"
   },
   {
-    "type": 3,
+    "type": 4,
     "label": "links with https://username:password@www.something.com",
     "link": ""
   },
   {
-    "type": 0,
+    "type": 2,
     "label": "branch to data/page.json",
     "link": "page.json"
   }
 ]
 ```
-There are different types of links: 0 branch links indicating \data\.json file, 1 labels supporting html, 2 standard links, and 3 username:password@ links. You can also modify .\index.html and \css for custon layout.
+There are different types of links: 1 labels supporting html, 2 branch links indicating \data\.json file, 3 standard links, and 4 username:password@ links. You can also modify .\index.html and \css for custon layout.
 
 # Mobile
 
@@ -72,6 +72,36 @@ To disable mobile pinch to zoom in or out \index.html contains following lines
 ```
 dotnet publish -c Release
 
-Blazor-Links\bin\Release\net7.0\publish\
+Blazor-Links\bin\Release\net8.0\publish\wwwroot\
 ```
+Remove .gz and .br files in _framework. For github pages add .nojekyll file
+
+```
+async function onInstall(event) {
+    console.info('Service worker: Install');
+
+    // Fetch and cache all matching items from the assets manifest
+    const assetsRequests = self.assetsManifest.assets
+        .filter(asset => offlineAssetsInclude.some(pattern => pattern.test(asset.url)))
+        .filter(asset => !offlineAssetsExclude.some(pattern => pattern.test(asset.url)))
+        .map(asset => new Request(asset.url, { integrity: asset.hash, cache: 'no-cache' }));
+    await caches.open(cacheName).then(cache => cache.addAll(assetsRequests));
+}
+```
+Remove integrity check
+
+```
+async function onInstall(event) {
+    console.info('Service worker: Install');
+
+    // Fetch and cache all matching items from the assets manifest
+    const assetsRequests = self.assetsManifest.assets
+        .filter(asset => offlineAssetsInclude.some(pattern => pattern.test(asset.url)))
+        .filter(asset => !offlineAssetsExclude.some(pattern => pattern.test(asset.url)))
+        .map(asset => new Request(asset.url));
+    await caches.open(cacheName).then(cache => cache.addAll(assetsRequests));
+}
+```
+Change index.
+
 End
