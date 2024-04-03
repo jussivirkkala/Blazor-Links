@@ -1,0 +1,29 @@
+[
+  {
+    "type": 1,
+    "label": "<b>11See data/main.json v1.0.6</b>",
+    "link": ""
+  },
+  {
+    "type": 2,
+    "label": "links e.g. blazor.net",
+    "link": "https://www.blazor.net"
+  },
+  {
+    "type": 3,
+    "label": "links with https://username:password@www.something.com",
+    "link": ""
+  },
+  {
+    "type": 0,
+    "label": "branch to data/page.json",
+    "link": "page.json"
+  },
+  {
+    "type": 4,
+    "label": "Data path, data/",
+    "link": ""
+  }
+
+]
+  
