@@ -14,7 +14,7 @@ If you are just cloning repository and not rebuilding binary (not recommended as
     <link href="css/app.css" rel="stylesheet" />
     <link href="manifest.json" rel="manifest" />
 ```
-For custom links modify \data\.json files. Main.json is loaded by default. 
+For custom links modify docs\data\.json files. Main.json is loaded by default. 
 ```
 [
   {
