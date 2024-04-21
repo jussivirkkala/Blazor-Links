@@ -6,6 +6,12 @@
   },
   {
     "type": 3,
+    "label": "Blazor-for-ASP-NET-Web-Forms-Developers.pdf",
+    "link": "Blazor-for-ASP-NET-Web-Forms-Developers.pdf"
+  },
+  
+  {
+    "type": 3,
     "label": "links e.g. blazor.net",
     "link": "https://www.blazor.net"
   },
