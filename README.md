@@ -1,9 +1,8 @@
 # Blazor-Links
 
-2024-04-03 Cross platform, browser based Blazor progressive web application (PWA) for displaying html links with page navigation. Links are read from json file. Also supporting https://username:password@ links. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND (MIT)...
+2024-04-21 Cross platform, browser based Blazor progressive web application (PWA) for displaying html links with page navigation. Links are read from json file. Also supporting https://username:password@ links. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND (MIT)...
 
-
-Repository contains both Blazor C# source code and binary together. You can test from [](https://jussivirkkala.github.io/Blazor-Links/)https://jussivirkkala.github.io/Blazor-Links/
+Repository contains both Blazor C# source code and binary (docs folder) together. You can test from [](https://jussivirkkala.github.io/Blazor-Links/)https://jussivirkkala.github.io/Blazor-Links/
 
 # Cloning
 
@@ -19,7 +18,7 @@ For custom links modify docs\data\.json files. Main.json is loaded by default.
 [
   {
     "type": 1,
-    "label": "<b>See data/main.json v1.0.5</b>",
+    "label": "<b>See data/main.json</b>",
     "link": ""
   },
   {
@@ -36,10 +35,15 @@ For custom links modify docs\data\.json files. Main.json is loaded by default.
     "type": 2,
     "label": "branch to data/page.json",
     "link": "page.json"
+  },
+  {
+    "type": 8,
+    "label": "version",
+    "link": ""
   }
 ]
 ```
-There are different types of links: 1 labels supporting html, 2 branch links indicating \data\.json file, 3 standard links, and 4 username:password@ links. You can also modify .\index.html and \css for custon layout.
+There are different types of links: 1 labels supporting html, 2 branch links indicating \data\.json file, 3 standard links, 4 links username:password@ links, 5 copy to clipboard, 8 version, 9 data path. You can also modify .\index.html and \css for custon layout.
 
 # Mobile
 
