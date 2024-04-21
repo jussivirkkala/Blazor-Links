@@ -5,8 +5,9 @@
     "link": ""
   },
   {
-    "type": 0,
+    "type": 2,
     "label": "branch to data/main.json",
     "link": "main.json"
   }
 ]
+
