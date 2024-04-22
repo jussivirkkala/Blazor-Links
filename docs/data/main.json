@@ -4,6 +4,14 @@
     "label": "<b>See data/main.json</b>",
     "link": ""
   },
+
+    {
+    "type": 1,
+    "label": "<a href=gRPC-for-WCF-Developers.pdf>gRPC-for-WCF-Developers.pdf</a>",
+    "link": ""
+  },
+
+  
   {
     "type": 1,
     "label": "<a href=Blazor-for-ASP-NET-Web-Forms-Developers.pdf>Blazor-for-ASP-NET-Web-Forms-Developers.pdf</a>",
