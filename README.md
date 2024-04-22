@@ -22,6 +22,11 @@ For custom links modify docs\data\.json files. Main.json is loaded by default.
     "link": ""
   },
   {
+    "type": 2,
+    "label": "branch to data/page.json",
+    "link": "page.json"
+  },
+  {
     "type": 3,
     "label": "links e.g. blazor.net",
     "link": "https://www.blazor.net"
@@ -32,14 +37,19 @@ For custom links modify docs\data\.json files. Main.json is loaded by default.
     "link": ""
   },
   {
-    "type": 2,
-    "label": "branch to data/page.json",
-    "link": "page.json"
+    "type": 5,
+    "label": "Copying text into clipboard",
+    "link": "Test to be copied"
   },
   {
     "type": 8,
-    "label": "version",
-    "link": ""
+    "label": "version: ",
+    "link": "Displays software version"
+  },
+  {
+    "type": 9,
+    "label": "Data path: ",
+    "link": "By default is data"
   }
 ]
 ```
