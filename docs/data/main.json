@@ -1,7 +1,7 @@
 [
   {
     "type": 1,
-    "label": "<b>See data/main.json</b>",
+    "label": "<b>See data/main.json 2024-08-12</b>",
     "link": ""
   },
   {
@@ -21,12 +21,7 @@
   },
   {
     "type": 9,
-    "label": "Data path: ",
-    "link": ""
-  },
-{
-    "type": 8,
-    "label": "Version: ",
+    "label": "Data path, data/",
     "link": ""
   }
 
