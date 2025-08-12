@@ -20,6 +20,11 @@
     "link": "page.json"
   },
   {
+    "type": 8,
+    "label": "Version:",
+    "link": ""
+  }
+{
     "type": 9,
     "label": "Data path, data/",
     "link": ""
